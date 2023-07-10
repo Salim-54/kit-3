@@ -16,35 +16,29 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  ListGroupItem,
-  ListGroup,
   Media,
   Navbar,
   NavItem,
   NavLink,
   Nav,
   Container,
-  Row,
-  Col,
 } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
 function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
   const initialState = {
-    role: '',
-    phone: ''
-  }
+    role: "",
+    phone: "",
+  };
   const [profile, setProfile] = React.useState(initialState);
   let navigate = useNavigate();
-  console.log(profile)
+  console.log(profile);
 
   React.useEffect(() => {
-      const role = localStorage.getItem("role");
-      const phone = localStorage.getItem("phone");
-      setProfile({role: role, phone: phone})
-
-  }, [])
-
+    const role = localStorage.getItem("role");
+    const phone = localStorage.getItem("phone");
+    setProfile({ role: role, phone: phone });
+  }, []);
 
   // function that on mobile devices makes the search open
   const openSearch = () => {
@@ -81,11 +75,10 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
   return (
     <>
       <Navbar
-        className={classnames(
-          "navbar-top navbar-expand border-bottom",
-          { "navbar-dark bg-info": theme === "dark" },
-          { "navbar-light bg-secondary": theme === "light" }
-        )}
+        style={{ backgroundColor: "#666666" }}
+        className={classnames("navbar-top navbar-expand border-bottom", {
+          "navbar-light bg-secondary": theme === "light",
+        })}
       >
         <Container fluid>
           <Collapse navbar isOpen={true}>
@@ -145,8 +138,8 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   <Media className="align-items-center justify-content-space-between">
                     <Media className="ml-2 d-none d-lg-block m-20">
                       <span className="mb-0 text-sm font-weight-bold ">
-                      {profile.phone}
-                      </span> 
+                        {profile.phone}
+                      </span>
                     </Media>
                     <span className="avatar avatar-sm rounded-circle">
                       <img alt="..." src={require("assets/img/profile.jpg")} />
@@ -154,10 +147,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   </Media>
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                  >
+                  <DropdownItem href="#" onClick={(e) => e.preventDefault()}>
                     <i className="ni ni-user-run" />
                     <span onClick={logout}>Logout</span>
                   </DropdownItem>

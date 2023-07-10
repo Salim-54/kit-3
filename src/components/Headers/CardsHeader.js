@@ -20,7 +20,7 @@ function CardsHeader({ data }) {
 
   return (
     <>
-      <div className="header bg-info pb-6">
+      <div className="header pb-6" style={{ backgroundColor: "#666666" }}>
         <Container fluid>
           <div className="header-body">
             <Row className="align-items-center py-4">

@@ -7,7 +7,7 @@ import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 function ReferralDashboard({ data, profile }) {
   return (
     <>
-      <div className="header bg-info pb-6">
+      <div className="header  pb-6" style={{ backgroundColor: "#666666" }}>
         <Container fluid>
           <div className="header-body">
             <Row className="align-items-center py-4">
@@ -50,18 +50,10 @@ function ReferralDashboard({ data, profile }) {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          <a
-                            href={`${profile.referralLink}`}
-                          >
-                            My Link
-                          </a>
+                          <a href={`${profile.referralLink}`}>My Link</a>
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          <a
-                            href={`${profile.referralLink}`}
-                          >
-                            My link
-                          </a>
+                          <a href={`${profile.referralLink}`}>My link</a>
                         </span>
                       </div>
                       <Col className="col-auto">
