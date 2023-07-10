@@ -27,35 +27,35 @@ function Dashboard() {
       const loginCode = query.get('loginCode');
       try {
         console.log(loginCode)
-        fetch("http://localhost:5500/auth/login-with-url", {
+        fetch("https://api.shongxbong.me/auth/login-with-url", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ loginCode: loginCode }),
-        })  .then((response) => response.json())
-        .then((data) => {
-          if(data){
-            setProfile(data.data)
-            localStorage.setItem("token", data.data.token)
-            fetch("http://localhost:5500/subscribers/mine", {
-              method: "POST",                          
-              headers: {
-                  Authorization: `Bearer ${localStorage.getItem('token')}`,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data) {
+              setProfile(data.data);
+              localStorage.setItem("token", data.data.token);
+              fetch("https://api.shongxbong.me/subscribers/mine", {
+                method: "POST",
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
                   "Content-Type": "application/json",
                 },
-                  
-              body: JSON.stringify({ referralCode: data.data.referralCode }),
-            })
-            .then((response) => response.json())
-            .then((data) => {
-              setData(data.subscribers)
-            })
-            .catch((error) => console.log(error));
 
-          }
-        })
-        .catch((error) => console.log(error));
+                body: JSON.stringify({ referralCode: data.data.referralCode }),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  setData(data.subscribers);
+                })
+                .catch((error) => console.log(error));
+            }
+          })
+          .catch((error) => console.log(error));
         // setData(response);
         // console.log(response);
       } catch (error) {

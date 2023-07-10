@@ -86,7 +86,7 @@ function Register() {
     }
     setLogging(true);
     console.log(data1);
-    fetch("http://localhost:5500/auth/register", {
+    fetch("https://api.shongxbong.me/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

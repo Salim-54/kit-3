@@ -48,101 +48,96 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("adminToken");
-        fetch(
-          "http://localhost:5500/subscribers", {
-          method: "GET",          
+        fetch("https://api.shongxbong.me/subscribers", {
+          method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-          }
-        )
-        .then((response) => response.json())
-        .then((data) => {
-          const subscribers = data.subscribers
-          setSubscribers(subscribers)
-          const pendingSubscribers = []
-          const alreadySubscribed = []
-          const subscribed = []
-          const unclassified = []
-          const todaySubscribers = []
-
-          subscribers.forEach((subscriber) => {
-
-              const dateFormat = 'MMMM DD, YYYY HH:mm:ss [UTC]';
-            
-              // Convert the string to a Date object
-              const date = new Date(subscriber.createdAt);
-            
-              // Get the current date
-              const currentDate = new Date();
-              const formattedDate = currentDate.toLocaleString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-                timeZone: 'UTC'
-              });
-              const newFormattedDate = new Date(formattedDate)
-            
-              // Check if the year, month, and day match
-              const isSameYear = date.getUTCFullYear() === newFormattedDate.getUTCFullYear();
-              const isSameMonth = date.getUTCMonth() === newFormattedDate.getUTCMonth();
-              const isSameDay = date.getUTCDate() === newFormattedDate.getUTCDate();
-              console.log(isSameDay)
-
-              if(isSameYear && isSameMonth && isSameDay){
-                todaySubscribers.push(subscriber)
-                
-              }
-              
-              if(subscriber.subscriberStatus === 'Not subscribed'){
-                pendingSubscribers.push(subscriber)
-              } else if(subscriber.subscriberStatus === 'Already a subscriber'){
-                alreadySubscribed.push(subscriber)
-              }else if(subscriber.subscriberStatus === 'Subscribed'){
-                subscribed.push(subscriber)
-              }
-              else {
-                unclassified.push(subscriber)
-              } 
-            });
-            
-            setSubscribed(subscribed)
-            setPending(pendingSubscribers)
-            setAlreadySubscribed(alreadySubscribed)
-            setTodaySubscribers(todaySubscribers)
-            
-          })
-          .catch((error) => console.log(error));
-          
-          
-          fetch(
-            "http://localhost:5500/users", {
-              method: "GET",
-              headers: {
-                Authorization: `Bearer ${token}`,
-                  "Content-Type": "application/json",
-                },
-              }
-                  
-          )
+        })
           .then((response) => response.json())
           .then((data) => {
-            const users = data.users
-            setUsers(users)
-            const inactiveReferrers = []
-          
-          users.forEach((user) => {
-            if(user.referrals.length === 0 ){
-              inactiveReferrers.push(user)
-            } 
-          });
-          setInactive(inactiveReferrers)
+            const subscribers = data.subscribers;
+            setSubscribers(subscribers);
+            const pendingSubscribers = [];
+            const alreadySubscribed = [];
+            const subscribed = [];
+            const unclassified = [];
+            const todaySubscribers = [];
+
+            subscribers.forEach((subscriber) => {
+              const dateFormat = "MMMM DD, YYYY HH:mm:ss [UTC]";
+
+              // Convert the string to a Date object
+              const date = new Date(subscriber.createdAt);
+
+              // Get the current date
+              const currentDate = new Date();
+              const formattedDate = currentDate.toLocaleString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric",
+                timeZone: "UTC",
+              });
+              const newFormattedDate = new Date(formattedDate);
+
+              // Check if the year, month, and day match
+              const isSameYear =
+                date.getUTCFullYear() === newFormattedDate.getUTCFullYear();
+              const isSameMonth =
+                date.getUTCMonth() === newFormattedDate.getUTCMonth();
+              const isSameDay =
+                date.getUTCDate() === newFormattedDate.getUTCDate();
+              console.log(isSameDay);
+
+              if (isSameYear && isSameMonth && isSameDay) {
+                todaySubscribers.push(subscriber);
+              }
+
+              if (subscriber.subscriberStatus === "Not subscribed") {
+                pendingSubscribers.push(subscriber);
+              } else if (
+                subscriber.subscriberStatus === "Already a subscriber"
+              ) {
+                alreadySubscribed.push(subscriber);
+              } else if (subscriber.subscriberStatus === "Subscribed") {
+                subscribed.push(subscriber);
+              } else {
+                unclassified.push(subscriber);
+              }
+            });
+
+            setSubscribed(subscribed);
+            setPending(pendingSubscribers);
+            setAlreadySubscribed(alreadySubscribed);
+            setTodaySubscribers(todaySubscribers);
+          })
+          .catch((error) => console.log(error));
+
+        fetch("https://api.shongxbong.me/users", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         })
-        .catch((error) => console.log(error));
+          .then((response) => response.json())
+          .then((data) => {
+            const users = data.users;
+            setUsers(users);
+            const inactiveReferrers = [];
+
+            users.forEach((user) => {
+              if (user.referrals.length === 0) {
+                inactiveReferrers.push(user);
+              }
+            });
+            setInactive(inactiveReferrers);
+          })
+          .catch((error) => console.log(error));
       } catch (error) {
         console.error("Error:", error);
       }
