@@ -78,7 +78,7 @@ function CardsHeader({ data }) {
                   </CardBody>
                 </Card>
               </Col>
-              <Col md="6" xl="2">
+              {/* <Col md="6" xl="2">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
@@ -101,7 +101,7 @@ function CardsHeader({ data }) {
                     </Row>
                   </CardBody>
                 </Card>
-              </Col>
+              </Col> */}
               <Col md="6" xl="2">
                 <Card className="card-stats">
                   <CardBody>
