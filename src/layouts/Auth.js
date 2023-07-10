@@ -63,7 +63,7 @@ function Auth() {
         <AuthNavbar />
         <Routes>
           {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/auth/login" replace />} />
+          <Route path="*" element={<Navigate to="/auth/register" replace />} />
         </Routes>
       </div>
       <AuthFooter />
