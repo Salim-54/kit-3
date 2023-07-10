@@ -219,9 +219,7 @@ function Dashboard() {
                         <th className="sort" data-sort="budget" scope="col">
                           Phone number
                         </th>
-                        <th className="sort" data-sort="completion" scope="col">
-                          LINKS
-                        </th>
+
                         <th className="sort" data-sort="completion" scope="col">
                           Subscribers
                         </th>
@@ -229,52 +227,56 @@ function Dashboard() {
                           Pending Subscribers
                         </th>
                         <th className="sort" data-sort="completion" scope="col">
-                          Actions
+                          Referral Dashboard
                         </th>
                         <th scope="col" />
                       </tr>
                     </thead>
                     <tbody className="list">
-                    {users.length > 1 ? (
-                      users.map((item, index) => (
-                        <tr key={index}>
-                          <td>{item.phone}</td>
-                          <th scope="row">
-                            <a href={`${item.referralLink}`} target="_blank" rel="noreferrer">
-                              Referral link
-                            </a>
-                          </th>
-                          <th scope="row">
-                            {collection.map((data) => {
-                              console.log(data); // Check the value of data object
-                              return item.referralCode === data.referralCode
-                                ? data.subs.length
-                                : <></>
-                            })}
-                          </th>
-                          <th scope="row">
-                            {collection.map((data) => {
-                              console.log(data); // Check the value of data object
-                              return item.referralCode === data.referralCode
-                                ? data.pendingSubs.length
-                                : <></>
-                            })}
-                          </th>
-                          <th scope="row">
-                            <Button
-                              color="info"
-                              outline
-                              onClick={() => handleViewReferrer(item.loginLink)}
-                              type="button"
-                            >
-                              View
-                            </Button>
-                          </th>
-                        </tr>
-                      ))
-                    ) : (
-                      <></>
-                    )}
+                      {users.length > 1 ? (
+                        users.map((item, index) => (
+                          <tr key={index}>
+                            <td>{item.phone}</td>
+
+                            <th scope="row">
+                              {collection.map((data) => {
+                                console.log(data); // Check the value of data object
+                                return item.referralCode ===
+                                  data.referralCode ? (
+                                  data.subs.length
+                                ) : (
+                                  <></>
+                                );
+                              })}
+                            </th>
+                            <th scope="row">
+                              {collection.map((data) => {
+                                console.log(data); // Check the value of data object
+                                return item.referralCode ===
+                                  data.referralCode ? (
+                                  data.pendingSubs.length
+                                ) : (
+                                  <></>
+                                );
+                              })}
+                            </th>
+                            <th scope="row">
+                              <Button
+                                color="info"
+                                outline
+                                onClick={() =>
+                                  handleViewReferrer(item.loginLink)
+                                }
+                                type="button"
+                              >
+                                View
+                              </Button>
+                            </th>
+                          </tr>
+                        ))
+                      ) : (
+                        <></>
+                      )}
                     </tbody>
                   </Table>
                 </Card>
@@ -307,14 +309,14 @@ function Dashboard() {
                       </tr>
                     </thead>
                     <tbody className="list">
-                     {subscribers.map((item, index) => (
+                      {subscribers.map((item, index) => (
                         <tr key={index}>
                           <td>{item.firstName}</td>
                           <td>{item.referredBy}</td>
                           <td>{item.subscriberStatus}</td>
                           <td>{item.createdAt}</td>
                         </tr>
-                      ))} 
+                      ))}
                     </tbody>
                   </Table>
                 </Card>

@@ -30,7 +30,7 @@ function CardsHeader({ data }) {
             </Row>
 
             <Row>
-              <Col md="3" xl="2">
+              <Col md="3" xl="3">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
@@ -54,7 +54,7 @@ function CardsHeader({ data }) {
                   </CardBody>
                 </Card>
               </Col>
-              <Col md="6" xl="2">
+              <Col md="6" xl="3">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
@@ -102,7 +102,7 @@ function CardsHeader({ data }) {
                   </CardBody>
                 </Card>
               </Col> */}
-              <Col md="6" xl="2">
+              <Col md="6" xl="3">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
@@ -126,7 +126,7 @@ function CardsHeader({ data }) {
                   </CardBody>
                 </Card>
               </Col>
-              <Col md="6" xl="2">
+              <Col md="6" xl="3">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
