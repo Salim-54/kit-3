@@ -82,7 +82,12 @@ function Dashboard() {
   }
   return (
     <>
-      <ReferralDashboard data={data} profile={profile} name="Default" parentName="Dashboards" />
+      <ReferralDashboard
+        data={data}
+        profile={profile}
+        name="Default"
+        parentName="Dashboards"
+      />
       <Container className="mt--6" fluid>
         <>
           <Container className="mt--6" fluid>
@@ -90,10 +95,42 @@ function Dashboard() {
               <div className="col">
                 <Card>
                   <CardHeader className="border-0">
-                    <h3 className="mb-0">Referral Link: <b>{profile.referralLink}</b></h3>
+                    <h2 className="mb-0">Links</h2>
+                  </CardHeader>
+
+                  <Table className="align-items-center table-flush" responsive>
+                    <thead className="thead-light">
+                      <tr>
+                        <th className="sort" data-sort="name" scope="col">
+                          Login link
+                        </th>
+                        <th className="sort" data-sort="status" scope="col">
+                          Referral link
+                        </th>
+
+                        <th scope="col" />
+                      </tr>
+                    </thead>
+                    <tbody className="list">
+                      <tr>
+                        <td>
+                          <b>{profile.loginLink}</b>
+                        </td>
+
+                        <td>
+                          <b>{profile.referralLink}</b>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Card>
+
+                <Card>
+                  <CardHeader className="border-0">
+                    {/* <h3 className="mb-0">Referral Link: <b>{profile.referralLink}</b></h3>
                     <h3 className="mb-0">Login Link: <b>{profile.loginLink}</b></h3>
                     <br/>
-                    <br/>
+                    <br/> */}
                     <h2 className="mb-0">Subscribers</h2>
                   </CardHeader>
 
@@ -113,13 +150,13 @@ function Dashboard() {
                       </tr>
                     </thead>
                     <tbody className="list">
-                     {data.map((item, index) => (
+                      {data.map((item, index) => (
                         <tr key={index}>
                           <td>{item.firstName}</td>
                           <td>{item.subscriberStatus}</td>
                           <td>{item.createdAt}</td>
                         </tr>
-                      ))} 
+                      ))}
                     </tbody>
                   </Table>
                 </Card>
