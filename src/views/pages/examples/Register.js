@@ -5,7 +5,6 @@ import classnames from "classnames";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   FormGroup,
   Form,
@@ -16,11 +15,8 @@ import {
   Container,
   Row,
   Col,
-  CardTitle,
-  CardText,
   UncontrolledAlert,
 } from "reactstrap";
-import ReactBSAlert from "react-bootstrap-sweetalert";
 import { useNavigate } from "react-router-dom";
 
 
