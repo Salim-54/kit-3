@@ -186,6 +186,16 @@ function Register() {
                 )}
               </CardBody>
             </Card>
+            <Card className="bg-secondary border-0">
+              <CardBody>
+                <img
+                  alt="..."
+                  className=" img-center img-fluid shadow shadow-lg--hover"
+                  src={require("assets/img/bandd.jpg")}
+                  style={{ width: "auto" }}
+                />
+              </CardBody>
+            </Card>
           </Col>
         </Row>
       </Container>
