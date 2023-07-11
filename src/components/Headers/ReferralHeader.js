@@ -72,7 +72,7 @@ function ReferralDashboard({ data, profile }) {
                             )
                           }
                         >
-                          Copy
+                          Copy link
                         </a>
                       </div>
                       <Col className="col-auto">
@@ -111,7 +111,7 @@ function ReferralDashboard({ data, profile }) {
                             )
                           }
                         >
-                          Copy
+                          Copy link
                         </a>
                       </div>
                       <Col className="col-auto">

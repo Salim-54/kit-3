@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row } from "reactstrap";
+import { Card, CardHeader, Container, Row, Table } from "reactstrap";
 import { useLocation } from "react-router-dom";
 import ReferralDashboard from "components/Headers/ReferralHeader";
 
@@ -99,16 +99,12 @@ function Dashboard() {
                   </Table>
                 </Card> */}
 
-                {/* <Card> */}
-                {/* <CardHeader className="border-0"> */}
-                {/* <h3 className="mb-0">Referral Link: <b>{profile.referralLink}</b></h3>
-                    <h3 className="mb-0">Login Link: <b>{profile.loginLink}</b></h3>
-                    <br/>
-                    <br/> */}
-                {/* <h2 className="mb-0">Subscribers</h2> */}
-                {/* </CardHeader> */}
+                <Card>
+                  <CardHeader className="border-0">
+                    <h2 className="mb-0">Subscribers</h2>
+                  </CardHeader>
 
-                {/* <Table className="align-items-center table-flush" responsive>
+                  <Table className="align-items-center table-flush" responsive>
                     <thead className="thead-light">
                       <tr>
                         <th className="sort" data-sort="name" scope="col">
@@ -132,8 +128,8 @@ function Dashboard() {
                         </tr>
                       ))}
                     </tbody>
-                  </Table> */}
-                {/* </Card> */}
+                  </Table>
+                </Card>
               </div>
             </Row>
           </div>
