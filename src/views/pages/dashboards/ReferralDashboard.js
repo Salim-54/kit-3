@@ -93,7 +93,7 @@ function Dashboard() {
           <div className="mt--6" fluid>
             <Row>
               <div className="col">
-                <Card>
+                {/* <Card>
                   <CardHeader className="border-0">
                     <h2 className="mb-0">Links</h2>
                   </CardHeader>
@@ -123,18 +123,18 @@ function Dashboard() {
                       </tr>
                     </tbody>
                   </Table>
-                </Card>
+                </Card> */}
 
-                <Card>
-                  <CardHeader className="border-0">
-                    {/* <h3 className="mb-0">Referral Link: <b>{profile.referralLink}</b></h3>
+                {/* <Card> */}
+                {/* <CardHeader className="border-0"> */}
+                {/* <h3 className="mb-0">Referral Link: <b>{profile.referralLink}</b></h3>
                     <h3 className="mb-0">Login Link: <b>{profile.loginLink}</b></h3>
                     <br/>
                     <br/> */}
-                    <h2 className="mb-0">Subscribers</h2>
-                  </CardHeader>
+                {/* <h2 className="mb-0">Subscribers</h2> */}
+                {/* </CardHeader> */}
 
-                  <Table className="align-items-center table-flush" responsive>
+                {/* <Table className="align-items-center table-flush" responsive>
                     <thead className="thead-light">
                       <tr>
                         <th className="sort" data-sort="name" scope="col">
@@ -158,8 +158,8 @@ function Dashboard() {
                         </tr>
                       ))}
                     </tbody>
-                  </Table>
-                </Card>
+                  </Table> */}
+                {/* </Card> */}
               </div>
             </Row>
           </div>

@@ -205,8 +205,16 @@ function Dashboard() {
       <Container className="mt--6" fluid>
         <>
           {/* <SimpleHeader name="Tables" parentName="Tables" /> */}
-          <div className="" fluid>
-            <Row>
+          <div
+            className=""
+            // style={{ overflowX: "auto", backgroundColor: "red" }}
+            fluid
+          >
+            <Row
+              style={{
+                overflowX: "overflow-x: auto",
+              }}
+            >
               <div className="col">
                 <Card>
                   <CardHeader className="border-0">
@@ -283,7 +291,7 @@ function Dashboard() {
               </div>
             </Row>
 
-            <Row>
+            {/* <Row>
               <div className="col">
                 <Card>
                   <CardHeader className="border-0">
@@ -321,7 +329,7 @@ function Dashboard() {
                   </Table>
                 </Card>
               </div>
-            </Row>
+            </Row> */}
           </div>
         </>
       </Container>
