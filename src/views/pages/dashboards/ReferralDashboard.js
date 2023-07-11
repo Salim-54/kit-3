@@ -1,32 +1,21 @@
 import React from "react";
-
-import Chart from "chart.js";
-
-import { Button, Card, CardHeader, Container, Row, Table } from "reactstrap";
-
-import CardsHeader from "components/Headers/CardsHeader.js";
-
-import { chartOptions, parseOptions } from "variables/charts.js";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Container, Row } from "reactstrap";
+import { useLocation } from "react-router-dom";
 import ReferralDashboard from "components/Headers/ReferralHeader";
 
 function Dashboard() {
-  let navigate = useNavigate();
   const location = useLocation();
-
-  const [activeNav, setActiveNav] = React.useState(1);
-  const [chartExample1Data, setChartExample1Data] = React.useState("data1");
 
   const [data, setData] = React.useState([]);
   const [profile, setProfile] = React.useState({});
 
-  React.useEffect(() => {})
+  React.useEffect(() => {});
   React.useEffect(() => {
     const fetchData = async (req, res) => {
       const query = new URLSearchParams(location.search);
-      const loginCode = query.get('loginCode');
+      const loginCode = query.get("loginCode");
       try {
-        console.log(loginCode)
+        console.log(loginCode);
         fetch("https://api.shongxbong.me/auth/login-with-url", {
           method: "POST",
           headers: {
@@ -63,23 +52,8 @@ function Dashboard() {
       }
     };
     fetchData();
-
   }, [location]);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
-  };
-  console.log(data)
-
-  const toggleNavs = (e, index) => {
-    e.preventDefault();
-    setActiveNav(index);
-    setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1");
-  };
-  if (window.Chart) {
-    parseOptions(Chart, chartOptions());
-  }
   return (
     <>
       <ReferralDashboard

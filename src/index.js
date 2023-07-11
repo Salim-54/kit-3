@@ -32,9 +32,7 @@ import "assets/vendor/nucleo/css/nucleo.css";
 import "assets/scss/argon-dashboard-pro-react.scss?v1.2.1";
 
 import AdminLayout from "layouts/Admin.js";
-import RTLLayout from "layouts/RTL.js";
 import AuthLayout from "layouts/Auth.js";
-import IndexView from "views/Index.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -42,10 +40,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/admin/*" element={<AdminLayout />} />
-      <Route path="/rtl/*" element={<RTLLayout />} />
       <Route path="/auth/*" element={<AuthLayout />} />
-      <Route path="/" element={<IndexView />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<Navigate to="/auth/register" replace />} />
     </Routes>
   </BrowserRouter>
 );

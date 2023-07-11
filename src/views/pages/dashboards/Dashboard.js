@@ -1,19 +1,15 @@
 import React from "react";
 
-import Chart from "chart.js";
+
 
 import { Card, CardHeader, Table, Container, Row, Button } from "reactstrap";
 
 import CardsHeader from "components/Headers/CardsHeader.js";
 
-import { chartOptions, parseOptions } from "variables/charts.js";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   let navigate = useNavigate();
-
-  const [activeNav, setActiveNav] = React.useState(1);
-  const [chartExample1Data, setChartExample1Data] = React.useState("data1");
 
   // const [data, setData] = React.useState([]);
   const [users, setUsers] = React.useState([]);
@@ -32,18 +28,19 @@ function Dashboard() {
     pending,
     alreadySubscribed,
     todaySubscribers,
-    inactive
-  }
-  let adminLoginToken 
+    inactive,
+  };
+  // eslint-disable-next-line no-unused-vars
+  let adminLoginToken;
   React.useEffect(() => {
-    const loginToken = localStorage.getItem('adminToken')
-    adminLoginToken = loginToken
-    if(!loginToken){
-      navigate('/')
+    const loginToken = localStorage.getItem("adminToken");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    adminLoginToken = loginToken;
+    if (!loginToken) {
+      navigate("/");
     }
-  })
+  });
 
-  
   React.useEffect(() => {
     const fetchData = async () => {
       try {
@@ -66,8 +63,6 @@ function Dashboard() {
             const todaySubscribers = [];
 
             subscribers.forEach((subscriber) => {
-              const dateFormat = "MMMM DD, YYYY HH:mm:ss [UTC]";
-
               // Convert the string to a Date object
               const date = new Date(subscriber.createdAt);
 
@@ -142,7 +137,7 @@ function Dashboard() {
         console.error("Error:", error);
       }
     };
-    
+
     fetchData();
   }, []);
 
@@ -151,15 +146,15 @@ function Dashboard() {
     const pendingSubs = [];
     const subs = [];
     const subscribedBefore = [];
-  
-    users.forEach(user => {
+
+    users.forEach((user) => {
       const referralCode = user.referralCode;
       if (user.referrals.length > 0) {
-        subscribers.forEach(subscriber => {
+        subscribers.forEach((subscriber) => {
           if (subscriber.referredBy === referralCode) {
-            if (subscriber.subscriberStatus === 'Not subscribed') {
+            if (subscriber.subscriberStatus === "Not subscribed") {
               pendingSubs.push(subscriber.referredBy);
-            } else if (subscriber.subscriberStatus === 'Subscribed') {
+            } else if (subscriber.subscriberStatus === "Subscribed") {
               subs.push(subscriber.referredBy);
             } else {
               subscribedBefore.push(subscriber.referredBy);
@@ -171,34 +166,21 @@ function Dashboard() {
         referralCode,
         subs: [...subs], // Create a new array to avoid reference issues
         pendingSubs: [...pendingSubs],
-        subscribedBefore: [...subscribedBefore]
+        subscribedBefore: [...subscribedBefore],
       };
       userCollection.push(newUser);
       pendingSubs.length = 0; // Clear the arrays
       subs.length = 0;
       subscribedBefore.length = 0;
     });
-  
+
     setCollection(userCollection); // Update the state once, outside the loop
   }, [users, subscribers]);
 
-
-  const logout = () => {
-    localStorage.removeItem("response");
-    navigate("/");
-  };
   const handleViewReferrer = (url) => {
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
-  const toggleNavs = (e, index) => {
-    e.preventDefault();
-    setActiveNav(index);
-    setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1");
-  };
-  if (window.Chart) {
-    parseOptions(Chart, chartOptions());
-  }
   return (
     <>
       <CardsHeader data={data} name="Default" parentName="Dashboards" />

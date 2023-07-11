@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
@@ -5,7 +7,6 @@ import classnames from "classnames";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   FormGroup,
   Form,
@@ -16,13 +17,9 @@ import {
   Container,
   Row,
   Col,
-  CardTitle,
-  CardText,
   UncontrolledAlert,
 } from "reactstrap";
-import ReactBSAlert from "react-bootstrap-sweetalert";
 import { useNavigate } from "react-router-dom";
-
 
 // core components
 import AuthHeader from "components/Headers/AuthHeader.js";
@@ -59,10 +56,10 @@ function Register() {
     const telphone = response.data.phone;
     setGenerated(referralLink);
     setTel(telphone);
-    setLoginLink(loginLink)
+    setLoginLink(loginLink);
     // setPass(pas);
     successInfo();
-    navigate(`/admin/referral?loginCode=${response.data.referralCode}`)
+    navigate(`/admin/referral?loginCode=${response.data.referralCode}`);
   }
 
   const infoAlert = () => {
@@ -78,7 +75,6 @@ function Register() {
     setalert(false);
   };
 
-  
   function registerUser(data1) {
     if (data.phone.length < 4) {
       infoAlert();
@@ -109,7 +105,7 @@ function Register() {
         <UncontrolledAlert color="success">
           <span className="alert-text ml-1">
             <strong>Congratulations!</strong> your referral link has been
-            generated successfully. <br/>
+            generated successfully. <br />
             <strong>Redirecting you to the dashboard...</strong>
           </span>
         </UncontrolledAlert>
@@ -142,9 +138,7 @@ function Register() {
                 <hr />
                 {generated === "" && (
                   <div className="text-center text-muted mb-4">
-                    <small>
-                      Add your phone number to register
-                    </small>
+                    <small>Add your phone number to register</small>
                   </div>
                 )}
 
@@ -188,9 +182,7 @@ function Register() {
                     </div>
                   </Form>
                 ) : (
-                  <CardBody>
-                    {success}
-                  </CardBody>
+                  <CardBody>{success}</CardBody>
                 )}
               </CardBody>
             </Card>
