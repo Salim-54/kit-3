@@ -90,7 +90,7 @@ function Dashboard() {
       />
       <Container className="mt--6" fluid>
         <>
-          <Container className="mt--6" fluid>
+          <div className="mt--6" fluid>
             <Row>
               <div className="col">
                 <Card>
@@ -162,7 +162,7 @@ function Dashboard() {
                 </Card>
               </div>
             </Row>
-          </Container>
+          </div>
         </>
       </Container>
     </>
