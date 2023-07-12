@@ -64,7 +64,7 @@ function CardsHeader({ data }) {
                           Total subscribers
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          {totalSubscribers}
+                          {data.subscribed}
                         </span>
                       </div>
                       <Col className="col-auto">
