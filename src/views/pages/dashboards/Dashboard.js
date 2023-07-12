@@ -63,35 +63,7 @@ function Dashboard() {
             const todaySubscribers = [];
 
             subscribers.forEach((subscriber) => {
-              // Convert the string to a Date object
-              const date = new Date(subscriber.createdAt);
-
-              // Get the current date
-              const currentDate = new Date();
-              const formattedDate = currentDate.toLocaleString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "numeric",
-                minute: "numeric",
-                second: "numeric",
-                timeZone: "UTC",
-              });
-              const newFormattedDate = new Date(formattedDate);
-
-              // Check if the year, month, and day match
-              const isSameYear =
-                date.getUTCFullYear() === newFormattedDate.getUTCFullYear();
-              const isSameMonth =
-                date.getUTCMonth() === newFormattedDate.getUTCMonth();
-              const isSameDay =
-                date.getUTCDate() === newFormattedDate.getUTCDate();
-              console.log(isSameDay);
-
-              if (isSameYear && isSameMonth && isSameDay) {
-                todaySubscribers.push(subscriber);
-              }
-
+              
               if (subscriber.subscriberStatus === "Not subscribed") {
                 pendingSubscribers.push(subscriber);
               } else if (
@@ -230,7 +202,6 @@ function Dashboard() {
 
                             <th scope="row">
                               {collection.map((data) => {
-                                console.log(data); // Check the value of data object
                                 return item.referralCode ===
                                   data.referralCode ? (
                                   data.subs.length
@@ -241,7 +212,6 @@ function Dashboard() {
                             </th>
                             <th scope="row">
                               {collection.map((data) => {
-                                console.log(data); // Check the value of data object
                                 return item.referralCode ===
                                   data.referralCode ? (
                                   data.pendingSubs.length

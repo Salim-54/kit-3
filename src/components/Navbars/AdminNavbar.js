@@ -26,19 +26,16 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
-  const initialState = {
-    role: "",
-    phone: "",
-  };
-  const [profile, setProfile] = React.useState(initialState);
+  // const initialState = {
+  //   role: "",
+  //   phone: "",
+  // };
+  // const [profile, setProfile] = React.useState(initialState);
   let navigate = useNavigate();
-  console.log(profile);
 
-  React.useEffect(() => {
-    const role = localStorage.getItem("role");
-    const phone = localStorage.getItem("phone");
-    setProfile({ role: role, phone: phone });
-  }, []);
+  // React.useEffect(() => {
+  //   setProfile({ role: role, phone: phone });
+  // }, []);
 
   // function that on mobile devices makes the search open
   const openSearch = () => {
@@ -68,7 +65,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
   };
 
   const logout = () => {
-    localStorage.removeItem("bearerToken");
+    localStorage.removeItem("adminToken");
     navigate("/");
   };
 
@@ -138,7 +135,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   <Media className="align-items-center justify-content-space-between">
                     <Media className="ml-2 d-none d-lg-block m-20">
                       <span className="mb-0 text-sm font-weight-bold ">
-                        {profile.phone}
+                        {/* {profile.phone} */}
                       </span>
                     </Media>
                     <span className="avatar avatar-sm rounded-circle">
