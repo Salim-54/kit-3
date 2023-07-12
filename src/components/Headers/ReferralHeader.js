@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // reactstrap components
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 
-function ReferralDashboard({ data, profile, subsctibed, pending  }) {
+function ReferralDashboard({ data, profile, subscribed, pending  }) {
   return (
     <>
       <div className="header  pb-6" style={{ backgroundColor: "#666666" }}>
@@ -30,7 +30,7 @@ function ReferralDashboard({ data, profile, subsctibed, pending  }) {
                           Total subscribers
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          {subsctibed.length}
+                          {subscribed.length}
                         </span>
                       </div>
                       <Col className="col-auto">
