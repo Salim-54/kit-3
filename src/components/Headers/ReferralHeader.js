@@ -12,9 +12,9 @@ function ReferralDashboard({ data, profile }) {
       <div className="header  pb-6" style={{ backgroundColor: "#666666" }}>
         <Container fluid>
           <div className="header-body">
-            <Row className="align-items-center py-4">
-              <Col lg="6" xs="7">
-                <h6 className="h2 text-white d-inline-block mb-0">Dashboard</h6>
+            <Row className=" py-4">
+              <Col>
+                <h6 className="h2 text-white text-right  mb-0">Dashboard</h6>
               </Col>
             </Row>
 
@@ -30,7 +30,7 @@ function ReferralDashboard({ data, profile }) {
                         >
                           Total subscribers
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">
+                        <span className="h2 font-weight-bold text-left mb-0">
                           {data.length}
                         </span>
                       </div>
@@ -146,7 +146,7 @@ function ReferralDashboard({ data, profile }) {
                       <div className="col">
                         <CardTitle
                           tag="h5"
-                          className="text-uppercase text-muted mb-0"
+                          className="text-uppercase text-muted mb-0 "
                         >
                           Pending Subscribers
                         </CardTitle>

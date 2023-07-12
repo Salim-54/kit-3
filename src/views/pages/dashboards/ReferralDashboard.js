@@ -101,7 +101,7 @@ function Dashboard() {
 
                 <Card>
                   <CardHeader className="border-0">
-                    <h2 className="mb-0">Subscribers</h2>
+                    <h2 className="mb-0 text-right">Subscribers</h2>
                   </CardHeader>
 
                   <Table className="align-items-center table-flush" responsive>
