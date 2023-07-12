@@ -223,7 +223,7 @@ function Dashboard() {
                       </tr>
                     </thead>
                     <tbody className="list">
-                      {users.length > 1 ? (
+                      {users.length > 0 ? (
                         users.map((item, index) => (
                           <tr key={index}>
                             <td>{item.phone}</td>
