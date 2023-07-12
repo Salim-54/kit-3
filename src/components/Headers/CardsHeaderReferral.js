@@ -36,14 +36,6 @@ function CardsHeader({ data }) {
     item.createdAt.startsWith(currentDate)
   ).length;
 
-  console.log("Total Subscribers:", totalSubscribers);
-  console.log("Total Objects:", totalObjects);
-  console.log("Total Objects with 0 Subscribers:", objectsWithZeroSubscribers);
-  console.log(
-    "Total Objects with createdAt of today:",
-    objectsWithTodayCreatedAt
-  );
-
   return (
     <>
       <div className="header bg-info pb-6">

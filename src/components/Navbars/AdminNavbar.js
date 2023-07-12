@@ -32,11 +32,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
   };
   const [profile, setProfile] = React.useState(initialState);
   let navigate = useNavigate();
-  console.log(profile);
-
   React.useEffect(() => {
-    const role = localStorage.getItem("role");
-    const phone = localStorage.getItem("phone");
     setProfile({ role: role, phone: phone });
   }, []);
 
@@ -68,7 +64,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
   };
 
   const logout = () => {
-    localStorage.removeItem("bearerToken");
+    localStorage.removeItem("adminToken");
     navigate("/");
   };
 

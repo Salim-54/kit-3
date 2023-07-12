@@ -44,12 +44,10 @@ function Register() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, phone: value }));
-    console.log(value);
   };
 
   function handleResponse(response) {
     // Handle the response here
-    console.log(response);
     const referralLink = response.data.referralLink;
     const loginLink = response.data.loginLink;
     // const pas = response.data.password;
@@ -81,7 +79,6 @@ function Register() {
       return;
     }
     setLogging(true);
-    console.log(data1);
     fetch("https://api.shongxbong.me/auth/register", {
       method: "POST",
       headers: {
