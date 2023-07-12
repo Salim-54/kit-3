@@ -1,23 +1,5 @@
-/*!
-
-=========================================================
-* Argon Dashboard PRO React - v1.2.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
-// react library for routing
 import { Link } from "react-router-dom";
-// reactstrap components
 import {
   UncontrolledCollapse,
   NavbarBrand,
@@ -29,7 +11,6 @@ import {
   Row,
   Col,
   UncontrolledTooltip,
-  Button,
 } from "reactstrap";
 
 function AdminNavbar() {
@@ -86,7 +67,10 @@ function AdminNavbar() {
               </Row>
             </div>
 
-            <Nav className="align-items-lg-center ml-lg-auto" navbar>
+            <Nav
+              className="align-items-lg-center justify-content-between rtl ml-0"
+              navbar
+            >
               <NavItem>
                 <NavLink
                   className="nav-link-icon"
