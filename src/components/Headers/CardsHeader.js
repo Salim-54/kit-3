@@ -40,7 +40,7 @@ function CardsHeader({ data }) {
                           Total referrers
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          {totalUsers}
+                          {totalUsers ? totalUsers : 0}
                         </span>
                       </div>
                       <Col className="col-auto">
@@ -64,7 +64,7 @@ function CardsHeader({ data }) {
                           Total subscribers
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          {data.subscribed}
+                          {data.subscribed.length ? data.subscribed.length : 0}
                         </span>
                       </div>
                       <Col className="col-auto">
@@ -76,30 +76,6 @@ function CardsHeader({ data }) {
                   </CardBody>
                 </Card>
               </Col>
-              {/* <Col md="6" xl="2">
-                <Card className="card-stats">
-                  <CardBody>
-                    <Row>
-                      <div className="col">
-                        <CardTitle
-                          tag="h5"
-                          className="text-uppercase text-muted mb-0"
-                        >
-                          Today's Subscribers
-                        </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">
-                          {data.todaySubscribers.length}
-                        </span>
-                      </div>
-                      <Col className="col-auto">
-                        <div className="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                          <i className="ni ni-money-coins" />
-                        </div>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Card>
-              </Col> */}
               <Col md="6" xl="3">
                 <Card className="card-stats">
                   <CardBody>
@@ -112,7 +88,7 @@ function CardsHeader({ data }) {
                           inactive referrers
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          {data.inactive.length}
+                          {data.inactive.length ? data.inactive.length : 0}
                         </span>
                       </div>
                       <Col className="col-auto">
@@ -136,7 +112,7 @@ function CardsHeader({ data }) {
                           Pending subscribers
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          {data.pending.length}
+                          {data.pending.length ? data.pending.length : 0}
                         </span>
                       </div>
                       <Col className="col-auto">
