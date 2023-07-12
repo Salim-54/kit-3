@@ -11,13 +11,13 @@ function Dashboard() {
   const [profile, setProfile] = React.useState({});
   const [pending, setPending] = React.useState({});
   const [subscribed, setSubscribed] = React.useState({});
-  const mySubs = data.subscribers
+
 
   React.useEffect(() => {
     const subscribed = []
     const pending = []
 
-    mySubs.forEach((sub) => {
+    data.forEach((sub) => {
       if(sub.subscriberStatus === 'Subscribed'){
         subscribed.push(sub)
       } else pending.push(sub)
@@ -27,7 +27,7 @@ function Dashboard() {
 
 
 
-  }, [mySubs]);
+  }, [data]);
   React.useEffect(() => {
     const fetchData = async (req, res) => {
       const query = new URLSearchParams(location.search);
