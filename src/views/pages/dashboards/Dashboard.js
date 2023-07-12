@@ -53,16 +53,17 @@ function Dashboard() {
           },
         })
           .then((response) => response.json())
-          .then((data) => {
-            const subscribers = data.subscribers;
-            setSubscribers(subscribers);
+          .then((data) => { 
+            
+            const subscriberData = data.subscribers;
+            setSubscribers(subscriberData);
             const pendingSubscribers = [];
             const alreadySubscribed = [];
             const subscribed = [];
             const unclassified = [];
             const todaySubscribers = [];
 
-            subscribers.forEach((subscriber) => {
+            subscriberData.forEach((subscriber) => {
               
               if (subscriber.subscriberStatus === "Not subscribed") {
                 pendingSubscribers.push(subscriber);
@@ -121,7 +122,7 @@ function Dashboard() {
 
     users.forEach((user) => {
       const referralCode = user.referralCode;
-      if (user.referrals.length > 0) {
+      if (user.referrals.length > 0 && subscribers.length > 0) {
         subscribers.forEach((subscriber) => {
           if (subscriber.referredBy === referralCode) {
             if (subscriber.subscriberStatus === "Not subscribed") {
@@ -198,34 +199,34 @@ function Dashboard() {
                       {users.length > 0 ? (
                         users.map((item, index) => (
                           <tr key={index}>
-                            <td>{item.phone}</td>
+                            <td>{item.phone ? item.phone : "N/A"}</td>
 
                             <th scope="row">
-                              {collection.map((data) => {
+                              {collection.length > 0 ? collection.map((data) => {
                                 return item.referralCode ===
                                   data.referralCode ? (
                                   data.subs.length
                                 ) : (
                                   <></>
-                                );
-                              })}
+                                ) ;
+                              }) : 0}
                             </th>
                             <th scope="row">
-                              {collection.map((data) => {
+                              {collection.length > 0 ? collection.map((data) => {
                                 return item.referralCode ===
                                   data.referralCode ? (
                                   data.pendingSubs.length
                                 ) : (
                                   <></>
                                 );
-                              })}
+                              }) : 0}
                             </th>
                             <th scope="row">
                               <Button
                                 color="info"
                                 outline
                                 onClick={() =>
-                                  handleViewReferrer(item.loginLink)
+                                  handleViewReferrer(item.loginLink ? item.loginLink : '#')
                                 }
                                 type="button"
                               >
@@ -242,46 +243,6 @@ function Dashboard() {
                 </Card>
               </div>
             </Row>
-
-            {/* <Row>
-              <div className="col">
-                <Card>
-                  <CardHeader className="border-0">
-                    <h3 className="mb-0">Subscribers</h3>
-                  </CardHeader>
-
-                  <Table className="align-items-center table-flush" responsive>
-                    <thead className="thead-light">
-                      <tr>
-                        <th className="sort" data-sort="name" scope="col">
-                          Name
-                        </th>
-                        <th className="sort" data-sort="budget" scope="col">
-                          Referred By
-                        </th>
-                        <th className="sort" data-sort="status" scope="col">
-                          Status
-                        </th>
-                        <th className="sort" data-sort="status" scope="col">
-                          Creation Date
-                        </th>
-                        <th scope="col" />
-                      </tr>
-                    </thead>
-                    <tbody className="list">
-                      {subscribers.map((item, index) => (
-                        <tr key={index}>
-                          <td>{item.firstName}</td>
-                          <td>{item.referredBy}</td>
-                          <td>{item.subscriberStatus}</td>
-                          <td>{item.createdAt}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </Card>
-              </div>
-            </Row> */}
           </div>
         </>
       </Container>
