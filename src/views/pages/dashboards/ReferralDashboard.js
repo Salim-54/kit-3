@@ -107,15 +107,9 @@ function Dashboard() {
                   <Table className="align-items-center table-flush" responsive>
                     <thead className="thead-light">
                       <tr>
-                        <th className="sort" data-sort="name" scope="col">
-                          Name
-                        </th>
-                        <th className="sort" data-sort="status" scope="col">
-                          Status
-                        </th>
-                        <th className="sort" data-sort="status" scope="col">
-                          Creation Date
-                        </th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Creation Date</th>
                         <th scope="col" />
                       </tr>
                     </thead>

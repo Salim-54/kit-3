@@ -39,6 +39,7 @@ function AdminNavbar() {
           </button>
           <UncontrolledCollapse
             className="navbar-custom-collapse"
+            style={{ flexGrow: 0 }}
             navbar
             toggler="#navbar-collapse"
           >
