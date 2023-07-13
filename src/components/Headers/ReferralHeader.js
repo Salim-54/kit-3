@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 import CopyToClipboard from "react-copy-to-clipboard";
 
-function ReferralDashboard({ data, profile }) {
+function ReferralDashboard({ data, profile, subscribed, pending  }) {
   return (
     <>
       <div className="header  pb-6" style={{ backgroundColor: "#666666" }}>
@@ -30,8 +30,9 @@ function ReferralDashboard({ data, profile }) {
                         >
                           Total subscribers
                         </CardTitle>
-                        <span className="h2 font-weight-bold text-left mb-0">
-                          {data.length}
+
+                        <span className="h2 font-weight-bold mb-0">
+                          {subscribed.length}
                         </span>
                       </div>
                       <Col className="col-auto">
@@ -151,7 +152,7 @@ function ReferralDashboard({ data, profile }) {
                           Pending Subscribers
                         </CardTitle>
                         <span className="h2 font-weight-bold mb-0">
-                          {console.log(data.firstName)}
+                          {pending.length}
                         </span>
                       </div>
                       <Col className="col-auto">

@@ -39,11 +39,11 @@ function Login() {
     setData((prev) => ({ ...prev, [name]: value }));
   };
 
-  console.log("This is the data:", data);
+
 
   function handleResponse(response) {
     // Handle the response here
-    console.log("This is the response===========", response);
+
     localStorage.setItem("adminToken", response.token);
 
     if (response.role === "admin") {

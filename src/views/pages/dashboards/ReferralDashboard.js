@@ -1,21 +1,38 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Card, CardHeader, Container, Row, Table } from "reactstrap";
 import { useLocation } from "react-router-dom";
 import ReferralDashboard from "components/Headers/ReferralHeader";
+
 
 function Dashboard() {
   const location = useLocation();
 
   const [data, setData] = React.useState([]);
   const [profile, setProfile] = React.useState({});
+  const [pending, setPending] = React.useState({});
+  const [subscribed, setSubscribed] = React.useState({});
 
-  React.useEffect(() => {});
+
+  React.useEffect(() => {
+    const subscribed = []
+    const pending = []
+
+    data.forEach((sub) => {
+      if(sub.subscriberStatus === 'Subscribed'){
+        subscribed.push(sub)
+      } else pending.push(sub)
+    })
+    setPending(pending)
+    setSubscribed(subscribed)
+
+
+
+  }, [data]);
   React.useEffect(() => {
     const fetchData = async (req, res) => {
       const query = new URLSearchParams(location.search);
       const loginCode = query.get("loginCode");
       try {
-        console.log(loginCode);
         fetch("https://api.shongxbong.me/auth/login-with-url", {
           method: "POST",
           headers: {
@@ -45,8 +62,6 @@ function Dashboard() {
             }
           })
           .catch((error) => console.log(error));
-        // setData(response);
-        // console.log(response);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -59,6 +74,9 @@ function Dashboard() {
       <ReferralDashboard
         data={data}
         profile={profile}
+        pending={pending}
+        subscribed={subscribed}
+
         name="Default"
         parentName="Dashboards"
       />
