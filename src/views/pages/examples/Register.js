@@ -150,7 +150,7 @@ function Register() {
                       <InputGroup className="input-group-merge input-group-alternative mb-3">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
-                            <i className="ni ni-email-83" />
+                            <i className="ni ni-mobile-button" />
                           </InputGroupText>
                         </InputGroupAddon>
                         <Input

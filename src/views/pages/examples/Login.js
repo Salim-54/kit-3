@@ -5,7 +5,6 @@ import classnames from "classnames";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   FormGroup,
   Form,
@@ -16,7 +15,6 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledAlert,
 } from "reactstrap";
 // core components
 import AuthHeader from "components/Headers/AuthHeader.js";
@@ -35,7 +33,6 @@ function Login() {
   const [data, setData] = React.useState(initialData);
 
   const [logging, setLogging] = React.useState(false);
-  const [success, setSuccess] = React.useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,8 +40,10 @@ function Login() {
   };
 
 
+
   function handleResponse(response) {
     // Handle the response here
+
     localStorage.setItem("adminToken", response.token);
 
     if (response.role === "admin") {
@@ -100,7 +99,7 @@ function Login() {
                     <InputGroup className="input-group-merge input-group-alternative">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="ni ni-email-83" />
+                          <i className="ni ni-mobile-button" />
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input

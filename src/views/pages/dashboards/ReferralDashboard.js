@@ -119,21 +119,15 @@ function Dashboard() {
 
                 <Card>
                   <CardHeader className="border-0">
-                    <h2 className="mb-0">Subscribers</h2>
+                    <h2 className="mb-0 text-right">Subscribers</h2>
                   </CardHeader>
 
                   <Table className="align-items-center table-flush" responsive>
                     <thead className="thead-light">
                       <tr>
-                        <th className="sort" data-sort="name" scope="col">
-                          Name
-                        </th>
-                        <th className="sort" data-sort="status" scope="col">
-                          Status
-                        </th>
-                        <th className="sort" data-sort="status" scope="col">
-                          Creation Date
-                        </th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Creation Date</th>
                         <th scope="col" />
                       </tr>
                     </thead>

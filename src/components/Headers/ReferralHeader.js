@@ -4,6 +4,7 @@ import React from "react";
 import PropTypes from "prop-types";
 // reactstrap components
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 function ReferralDashboard({ data, profile, subscribed, pending  }) {
   return (
@@ -11,9 +12,9 @@ function ReferralDashboard({ data, profile, subscribed, pending  }) {
       <div className="header  pb-6" style={{ backgroundColor: "#666666" }}>
         <Container fluid>
           <div className="header-body">
-            <Row className="align-items-center py-4">
-              <Col lg="6" xs="7">
-                <h6 className="h2 text-white d-inline-block mb-0">Dashboard</h6>
+            <Row className=" py-4">
+              <Col>
+                <h6 className="h2 text-white text-right  mb-0">Dashboard</h6>
               </Col>
             </Row>
 
@@ -29,6 +30,7 @@ function ReferralDashboard({ data, profile, subscribed, pending  }) {
                         >
                           Total subscribers
                         </CardTitle>
+
                         <span className="h2 font-weight-bold mb-0">
                           {subscribed.length}
                         </span>
@@ -72,13 +74,20 @@ function ReferralDashboard({ data, profile, subscribed, pending  }) {
                             )
                           }
                         >
-                          Copy link
+                          Copy referral link
                         </a>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                          <i className="ni ni-chart-pie-35" />
-                        </div>
+                        <CopyToClipboard
+                          text={profile.referralLink}
+                          onCopy={() => {}}
+                        >
+                          <button className="btn p-0 ">
+                            <div className="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                              <i className="ni ni-single-copy-04" />
+                            </div>
+                          </button>
+                        </CopyToClipboard>
                       </Col>
                     </Row>
                   </CardBody>
@@ -111,13 +120,21 @@ function ReferralDashboard({ data, profile, subscribed, pending  }) {
                             )
                           }
                         >
-                          Copy link
+                          Copy login link
                         </a>
                       </div>
+
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                          <i className="ni ni-money-coins" />
-                        </div>
+                        <CopyToClipboard
+                          text={profile.loginLink}
+                          onCopy={() => {}}
+                        >
+                          <button className="btn p-0 ">
+                            <div className="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                              <i className="ni ni-single-copy-04" />
+                            </div>
+                          </button>
+                        </CopyToClipboard>
                       </Col>
                     </Row>
                   </CardBody>
@@ -130,7 +147,7 @@ function ReferralDashboard({ data, profile, subscribed, pending  }) {
                       <div className="col">
                         <CardTitle
                           tag="h5"
-                          className="text-uppercase text-muted mb-0"
+                          className="text-uppercase text-muted mb-0 "
                         >
                           Pending Subscribers
                         </CardTitle>
