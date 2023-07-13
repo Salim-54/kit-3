@@ -1,31 +1,5 @@
 @charset "UTF-8";
 
-/*!
-
-=========================================================
-* Argon Dashboard PRO React - v1.2.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-
-
-/*******************************************************************************
- *              bootstrap-rtl (version 3.3.4)
- *      Author: Morteza Ansarinia (http://github.com/morteza)
- *  Created on: August 13,2015
- *     Project: bootstrap-rtl
- *   Copyright: Unlicensed Public Domain
- *******************************************************************************/
-
 html.rtl {
     direction: rtl;
 }
@@ -28939,4 +28913,4 @@ button:focus,
 }
 
 
-/*# sourceMappingURL=argon-dashboard-pro-react.css.map */
+/*# sourceMappingURL=argon-dashboard-pro-css.map */

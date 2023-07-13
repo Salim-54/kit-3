@@ -1,25 +1,19 @@
-import React from "react";
-
-
-
+import React, {useEffect, useState} from "react";
 import { Card, CardHeader, Table, Container, Row, Button } from "reactstrap";
-
 import CardsHeader from "components/Headers/CardsHeader.js";
-
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   let navigate = useNavigate();
 
-  // const [data, setData] = React.useState([]);
-  const [users, setUsers] = React.useState([]);
-  const [subscribers, setSubscribers] = React.useState([]);
-  const [subscribed, setSubscribed] = React.useState([]);
-  const [pending, setPending] = React.useState([]);
-  const [todaySubscribers, setTodaySubscribers] = React.useState([]);
-  const [alreadySubscribed, setAlreadySubscribed] = React.useState([]);
-  const [inactive, setInactive] = React.useState([]);
-  const [collection, setCollection] = React.useState([]);
+  const [users, setUsers] = useState([]);
+  const [subscribers, setSubscribers] = useState([]);
+  const [subscribed, setSubscribed] = useState([]);
+  const [pending, setPending] = useState([]);
+  const [todaySubscribers, setTodaySubscribers] = useState([]);
+  const [alreadySubscribed, setAlreadySubscribed] = useState([]);
+  const [inactive, setInactive] = useState([]);
+  const [collection, setCollection] = useState([]);
 
   const data = {
     users,
@@ -32,7 +26,7 @@ function Dashboard() {
   };
   // eslint-disable-next-line no-unused-vars
   let adminLoginToken;
-  React.useEffect(() => {
+  useEffect(() => {
     const loginToken = localStorage.getItem("adminToken");
     // eslint-disable-next-line react-hooks/exhaustive-deps
     adminLoginToken = loginToken;
@@ -41,7 +35,7 @@ function Dashboard() {
     }
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("adminToken");
@@ -114,7 +108,7 @@ function Dashboard() {
     fetchData();
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const userCollection = [];
     const pendingSubs = [];
     const subs = [];

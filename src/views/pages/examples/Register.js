@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useState } from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
 // reactstrap components
@@ -30,16 +30,16 @@ function Register() {
     phone: "",
   };
 
-  const [focusedEmail, setfocusedEmail] = React.useState(false);
-  const [data, setData] = React.useState(initialData);
-  // const [pass, setPass] = React.useState("");
-  const [tel, setTel] = React.useState("");
-  const [alert, setalert] = React.useState(false);
-  const [success, setSuccess] = React.useState(false);
-  const [logging, setLogging] = React.useState(false);
+  const [focusedEmail, setfocusedEmail] = useState(false);
+  const [data, setData] = useState(initialData);
+  // const [pass, setPass] = useState("");
+  const [tel, setTel] = useState("");
+  const [alert, setalert] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [logging, setLogging] = useState(false);
 
-  const [generated, setGenerated] = React.useState("");
-  const [loginLink, setLoginLink] = React.useState("");
+  const [generated, setGenerated] = useState("");
+  const [loginLink, setLoginLink] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;

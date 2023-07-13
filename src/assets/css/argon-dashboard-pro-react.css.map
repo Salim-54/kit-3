@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "argon-dashboard-pro-react.css",
+	"file": "argon-dashboard-pro-css",
 	"sources": [
-		"../scss/argon-dashboard-pro-react.scss",
+		"../scss/argon-dashboard-pro-scss",
 		"../scss/bootstrap-rtl/bootstrap-rtl.scss",
 		"../../../node_modules/bootstrap/scss/_functions.scss",
 		"../../../node_modules/bootstrap/scss/_mixins.scss",

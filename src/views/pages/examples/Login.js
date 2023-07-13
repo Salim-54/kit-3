@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
 // reactstrap components
@@ -26,13 +26,14 @@ function Login() {
     password: "",
   };
 
-  const [focusedEmail, setfocusedEmail] = React.useState(false);
-  const [focusedPassword, setfocusedPassword] = React.useState(false);
+  const [focusedEmail, setfocusedEmail] = useState(false);
+  const [focusedPassword, setfocusedPassword] = useState(false);
   let navigate = useNavigate();
 
-  const [data, setData] = React.useState(initialData);
+  const [data, setData] = useState(initialData);
 
-  const [logging, setLogging] = React.useState(false);
+  const [logging, setLogging] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, NavLink as NavLinkRRD, Link } from "react-router-dom";
 import classnames from "classnames";
 import { PropTypes } from "prop-types";
@@ -13,9 +13,9 @@ import {
 } from "reactstrap";
 
 function Sidebar({ toggleSidenav, sidenavOpen, routes, logo, rtlActive }) {
-  const [state, setState] = React.useState({});
+  const [state, setState] = useState({});
   const location = useLocation();
-  React.useEffect(() => {
+  useEffect(() => {
     setState(getCollapseStates(routes));
     // eslint-disable-next-line
   }, []);

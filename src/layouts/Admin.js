@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // react library for routing
 import { useLocation, Route, Routes, Navigate } from "react-router-dom";
 // core components
@@ -9,10 +9,10 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import routes from "routes.js";
 
 function Admin() {
-  const [sidenavOpen, setSidenavOpen] = React.useState(true);
+  const [sidenavOpen, setSidenavOpen] = useState(true);
   const location = useLocation();
-  const mainContentRef = React.useRef(null);
-  React.useEffect(() => {
+  const mainContentRef = useRef(null);
+  useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     mainContentRef.current.scrollTop = 0;

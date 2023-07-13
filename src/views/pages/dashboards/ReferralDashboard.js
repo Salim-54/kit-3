@@ -7,13 +7,13 @@ import ReferralDashboard from "components/Headers/ReferralHeader";
 function Dashboard() {
   const location = useLocation();
 
-  const [data, setData] = React.useState([]);
-  const [profile, setProfile] = React.useState({});
-  const [pending, setPending] = React.useState({});
-  const [subscribed, setSubscribed] = React.useState({});
+  const [data, setData] = useState([]);
+  const [profile, setProfile] = useState({});
+  const [pending, setPending] = useState({});
+  const [subscribed, setSubscribed] = useState({});
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     const subscribed = []
     const pending = []
 
@@ -24,11 +24,9 @@ function Dashboard() {
     })
     setPending(pending)
     setSubscribed(subscribed)
-
-
-
   }, [data]);
-  React.useEffect(() => {
+
+  useEffect(() => {
     const fetchData = async (req, res) => {
       const query = new URLSearchParams(location.search);
       const loginCode = query.get("loginCode");
@@ -85,38 +83,6 @@ function Dashboard() {
           <div className="mt--6" fluid>
             <Row>
               <div className="col">
-                {/* <Card>
-                  <CardHeader className="border-0">
-                    <h2 className="mb-0">Links</h2>
-                  </CardHeader>
-
-                  <Table className="align-items-center table-flush" responsive>
-                    <thead className="thead-light">
-                      <tr>
-                        <th className="sort" data-sort="name" scope="col">
-                          Login link
-                        </th>
-                        <th className="sort" data-sort="status" scope="col">
-                          Referral link
-                        </th>
-
-                        <th scope="col" />
-                      </tr>
-                    </thead>
-                    <tbody className="list">
-                      <tr>
-                        <td>
-                          <b>{profile.loginLink}</b>
-                        </td>
-
-                        <td>
-                          <b>{profile.referralLink}</b>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </Card> */}
-
                 <Card>
                   <CardHeader className="border-0">
                     <h2 className="mb-0 text-right">Subscribers</h2>
@@ -132,13 +98,13 @@ function Dashboard() {
                       </tr>
                     </thead>
                     <tbody className="list">
-                      {data.map((item, index) => (
+                      {data.length > 0 ? data.map((item, index) => (
                         <tr key={index}>
                           <td>{item.firstName}</td>
                           <td>{item.subscriberStatus}</td>
                           <td>{item.createdAt}</td>
                         </tr>
-                      ))}
+                      )) : <></>}
                     </tbody>
                   </Table>
                 </Card>

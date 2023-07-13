@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
 // nodejs library to set properties for components
@@ -26,18 +26,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
-  // const initialState = {
-  //   role: "",
-  //   phone: "",
-  // };
-  // const [profile, setProfile] = React.useState(initialState);
   let navigate = useNavigate();
-
-  // React.useEffect(() => {
-  //   setProfile({ role: role, phone: phone });
-  // }, []);
-
-  // function that on mobile devices makes the search open
   const openSearch = () => {
     document.body.classList.add("g-navbar-search-showing");
     setTimeout(function () {

@@ -1,20 +1,4 @@
-/*!
-
-=========================================================
-* Argon Dashboard PRO React - v1.2.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-import React from "react";
+import React, { useEffect, useState } from "react";
 // react library for routing
 import { useLocation, Route, Routes, Navigate } from "react-router-dom";
 
@@ -26,8 +10,8 @@ import routes from "routes.js";
 
 function Auth() {
   const location = useLocation();
-  const mainContentRef = React.useRef(null);
-  React.useEffect(() => {
+  const mainContentRef = useRef(null);
+  useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     mainContentRef.current.scrollTop = 0;
@@ -37,7 +21,7 @@ function Auth() {
       document.body.classList.remove("bg-default");
     };
   });
-  React.useEffect(() => {
+  useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     mainContentRef.current.scrollTop = 0;
