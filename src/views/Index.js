@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React, { useEffect, useState } from "react";
+import React from "react";
 // react library for routing
 
 import Register from "./pages/examples/Register";

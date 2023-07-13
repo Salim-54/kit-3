@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from "react";
+import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // reactstrap components
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 import CopyToClipboard from "react-copy-to-clipboard";
 
-function ReferralDashboard({ data, profile, subscribed, pending  }) {
+function ReferralDashboard({ profile, subscribed, pending  }) {
   return (
     <>
       <div className="header  pb-6" style={{ backgroundColor: "#666666" }}>

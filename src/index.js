@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 // react library for routing
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
@@ -14,7 +14,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 // plugins styles downloaded
 import "assets/vendor/nucleo/css/nucleo.css";
 // core styles
-import "assets/scss/argon-dashboard-pro-scss?v1.2.1";
+import "assets/scss/argon-dashboard-pro-react.scss";
 
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";

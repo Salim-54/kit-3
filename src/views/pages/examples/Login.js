@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
 // reactstrap components
@@ -33,7 +33,7 @@ function Login() {
   const [data, setData] = useState(initialData);
 
   const [logging, setLogging] = useState(false);
-  const [success, setSuccess] = useState(false);
+  // const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

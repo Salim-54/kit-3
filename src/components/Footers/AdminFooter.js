@@ -1,8 +1,8 @@
 /*eslint-disable*/
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 // reactstrap components
-import { NavItem, NavLink, Nav, Container, Row, Col } from "reactstrap";
+import {  Container, Row, Col } from "reactstrap";
 
 function AdminFooter() {
   return (
