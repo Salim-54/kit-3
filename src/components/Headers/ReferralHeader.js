@@ -3,10 +3,20 @@ import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // reactstrap components
-import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
+import { 
+  Card, 
+  CardBody,
+  CardTitle, 
+  Container, 
+  Row, 
+  Col, 
+  Button,
+  UncontrolledTooltip 
+} from "reactstrap";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 function ReferralDashboard({ profile, subscribed, pending  }) {
+  const [copiedText, setCopiedText] = React.useState(null);
   return (
     <>
       <div className="header  pb-6" style={{ backgroundColor: "#666666" }}>
@@ -19,7 +29,7 @@ function ReferralDashboard({ profile, subscribed, pending  }) {
             </Row>
 
             <Row>
-              <Col md="6" xl="3">
+              <Col md="6" xl="4">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
@@ -44,103 +54,80 @@ function ReferralDashboard({ profile, subscribed, pending  }) {
                   </CardBody>
                 </Card>
               </Col>
-              <Col md="6" xl="3">
-                <Card className="card-stats">
+              <Col md="6" xl="4">
+                <Card className="card-stats height -40">
                   <CardBody>
-                    <Row>
-                      <div className="col">
-                        <CardTitle
-                          tag="h5"
-                          className="text-uppercase text-muted mb-0"
-                        >
-                          Referral Link
-                        </CardTitle>
-                        {/* <span className="h2 font-weight-bold mb-0">
-                          <a href={`${profile.referralLink}`}>My link</a>
-                        </span> */}
-                        <a
-                          href="#"
-                          className=" h2 cursor-pointer font-weight-bold mb-0 "
-                          style={{ color: "#111111" }}
-                          onMouseEnter={(e) =>
-                            (e.target.style.color = "#111111")
-                          }
-                          onMouseLeave={(e) =>
-                            (e.target.style.color = "#111111")
-                          }
-                          onClick={() =>
-                            navigator.clipboard.writeText(
-                              `${profile.referralLink}`
-                            )
-                          }
-                        >
-                          Copy referral link
-                        </a>
-                      </div>
-                      <Col className="col-auto">
-                        <CopyToClipboard
-                          text={profile.referralLink}
-                          onCopy={() => {}}
-                        >
-                          <button className="btn p-0 ">
-                            <div className="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                              <i className="ni ni-single-copy-04" />
-                            </div>
-                          </button>
-                        </CopyToClipboard>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md="6" xl="3">
-                <Card className="card-stats">
-                  <CardBody>
-                    <Row>
-                      <div className="col cursor-pointer">
-                        <CardTitle
-                          tag="h5"
-                          className="text-uppercase text-muted mb-0"
-                        >
-                          Login Link
-                        </CardTitle>
-                        <a
-                          href="#"
-                          className=" h2 cursor-pointer font-weight-bold mb-0 "
-                          style={{ color: "black" }}
-                          onMouseEnter={(e) =>
-                            (e.target.style.color = "#111111")
-                          }
-                          onMouseLeave={(e) =>
-                            (e.target.style.color = "#111111")
-                          }
-                          onClick={() =>
-                            navigator.clipboard.writeText(
-                              `${profile.loginLink}`
-                            )
-                          }
-                        >
-                          Copy login link
-                        </a>
-                      </div>
+                    <Row className="j">
+                      <Row>
+                        <Col className="col-auto">
+                          <CopyToClipboard
+                            text={profile.referralLink}
+                            onCopy={() => {setCopiedText(profile.referralLink)}}
+                          >
+                            <Button 
+                                className="btn-icon text-white" 
+                                color="primary" 
+                                type="button"
+                                id="tooltip982655500"
+                                href= {profile.referralLink}
+                                >
+                                <span className="btn-inner--text"><b>Go To Referral Link</b></span>
+                                <span className="btn-inner--icon mr-1 text-white">
+                                  <i className="ni ni-user-run" />
+                                </span>
+                              </Button>
+                          </CopyToClipboard>
 
+                          <UncontrolledTooltip
+                            delay={0}
+                            trigger="hover focus"
+                            target="tooltip982655500"
+                          >
+                            {copiedText === profile.referralLink
+                              ? "Link Clicked"
+                              : "Go To Referral Link"}
+                          </UncontrolledTooltip>
+                        </Col>
+
+                        <Col className="col-auto">
+                          <CopyToClipboard
+                            text={profile.referralLink}
+                            onCopy={() => {setCopiedText(profile.referralLink)}}
+                          >
+                            <Button 
+                                className="btn-icon text-white" 
+                                color="primary" 
+                                type="button"
+                                id="tooltip9826555001"
+                                >
+                                <span className="btn-inner--text"><b>Referral Link</b></span>
+                                <span className="btn-inner--icon mr-1 text-white">
+                                  <i className="ni ni-ungroup" />
+                                </span>
+                              </Button>
+                          </CopyToClipboard>
+
+                          <UncontrolledTooltip
+                            delay={0}
+                            trigger="hover focus"
+                            target="tooltip9826555001"
+                          >
+                            {copiedText === profile.referralLink
+                              ? "Link Copied"
+                              : "Copy Referral Link"}
+                          </UncontrolledTooltip>
+                        </Col>
+                      </Row>
                       <Col className="col-auto">
-                        <CopyToClipboard
-                          text={profile.loginLink}
-                          onCopy={() => {}}
-                        >
-                          <button className="btn p-0 ">
-                            <div className="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                              <i className="ni ni-single-copy-04" />
-                            </div>
-                          </button>
-                        </CopyToClipboard>
+                        <div className="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
+                          <i className="ni ni-chart-bar-32" />
+                        </div>
                       </Col>
                     </Row>
                   </CardBody>
                 </Card>
               </Col>
-              <Col md="6" xl="3">
+              <Col md="6" xl="4">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
