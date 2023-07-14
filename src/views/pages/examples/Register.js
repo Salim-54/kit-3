@@ -29,8 +29,6 @@ function Register() {
   const initialData = {
     phone: "",
   };
-
-  const [focusedEmail, setfocusedEmail] = useState(false);
   const [data, setData] = useState(initialData);
   // const [pass, setPass] = useState("");
   const [tel, setTel] = useState("");
@@ -73,7 +71,9 @@ function Register() {
     setalert(false);
   };
 
-  function registerUser(data1) {
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log('reached here !!!!!!!')
     if (data.phone.length < 4) {
       infoAlert();
       return;
@@ -84,7 +84,7 @@ function Register() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data1),
+      body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -95,7 +95,10 @@ function Register() {
         setLogging(false);
         console.error("Error:", error);
       });
-  }
+    // Perform form submission logic here
+    console.log('Form submitted');
+  };
+
   const successInfo = () => {
     setTimeout(function () {
       setSuccess(
@@ -141,11 +144,9 @@ function Register() {
 
                 <div className="text-center text-muted mb-5"></div>
                 {generated === "" ? (
-                  <Form role="form">
+                  <Form role="form" onSubmit={handleSubmit}                
+                  >
                     <FormGroup
-                      className={classnames({
-                        focused: focusedEmail,
-                      })}
                     >
                       <InputGroup className="input-group-merge input-group-alternative mb-3">
                         <InputGroupAddon addonType="prepend">
@@ -159,24 +160,19 @@ function Register() {
                           name="phone"
                           id="phone"
                           onChange={handleChange}
-                          onFocus={() => setfocusedEmail(true)}
-                          onBlur={() => setfocusedEmail(false)}
                         />
                       </InputGroup>
-                    </FormGroup>
-
-                    <div className="text-center">
                       <Button
                         className="mt-4"
                         color="info"
-                        type="button"
-                        onClick={() => registerUser(data)}
+                        type="submit"
                       >
                         {logging
                           ? "Generating . . ."
                           : "Generate referral link"}
                       </Button>
-                    </div>
+                    </FormGroup>
+                    
                   </Form>
                 ) : (
                   <CardBody>{success}</CardBody>
