@@ -30,35 +30,48 @@ function ReferralDashboard({ profile, subscribed, pending  }) {
 
             <Row>
               <Col md="6" xl="4">
-                <Card className="card-stats">
+                <Card className="card-stats"
+                style={{ height: 113
+              }}
+                >
                   <CardBody>
                     <Row>
                       <div className="col">
                         <CardTitle
                           tag="h5"
-                          className="text-uppercase text-muted mb-0"
+                          className="text-uppercase text-muted text-right mb-0"
                         >
                           Total subscribers
+                        <p className="h2 font-weight-bold mb-0">
+                          {subscribed.length}
+                        </p>
                         </CardTitle>
 
-                        <span className="h2 font-weight-bold mb-0">
-                          {subscribed.length}
-                        </span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
                           <i className="ni ni-active-40" />
                         </div>
                       </Col>
+                      
                     </Row>
                   </CardBody>
                 </Card>
               </Col>
               <Col md="6" xl="4">
-                <Card className="card-stats height -40">
+                <Card className="card-stats">
                   <CardBody>
                     <Row className="j">
-                      <Row>
+                      <CardTitle
+                        tag="h5"
+                        className="text-uppercase text-muted text-right "
+                        style={{ marginRight: 20
+                        }}
+                      >
+                        Referral Link
+                      </CardTitle>
+                    </Row>
+                    <Row>
                         <Col className="col-auto">
                           <CopyToClipboard
                             text={profile.referralLink}
@@ -66,6 +79,7 @@ function ReferralDashboard({ profile, subscribed, pending  }) {
                           >
                             <Button 
                                 className="btn-icon text-white" 
+                                block
                                 color="primary" 
                                 type="button"
                                 id="tooltip982655500"
@@ -96,11 +110,12 @@ function ReferralDashboard({ profile, subscribed, pending  }) {
                           >
                             <Button 
                                 className="btn-icon text-white" 
+                                block
                                 color="primary" 
                                 type="button"
                                 id="tooltip9826555001"
                                 >
-                                <span className="btn-inner--text"><b>Referral Link</b></span>
+                                <span className="btn-inner--text"><b>Copy Referral Link</b></span>
                                 <span className="btn-inner--icon mr-1 text-white">
                                   <i className="ni ni-ungroup" />
                                 </span>
@@ -117,30 +132,33 @@ function ReferralDashboard({ profile, subscribed, pending  }) {
                               : "Copy Referral Link"}
                           </UncontrolledTooltip>
                         </Col>
-                      </Row>
-                      <Col className="col-auto">
-                        <div className="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">
-                          <i className="ni ni-chart-bar-32" />
-                        </div>
-                      </Col>
+                      
                     </Row>
                   </CardBody>
                 </Card>
               </Col>
+              
               <Col md="6" xl="4">
-                <Card className="card-stats">
+                <Card className="card-stats"
+                   style={{ height: 113
+                   }}
+                >
                   <CardBody>
                     <Row>
                       <div className="col">
                         <CardTitle
                           tag="h5"
-                          className="text-uppercase text-muted mb-0 "
+                          className="text-uppercase text-muted text-right mb-0 "
+                         
                         >
-                          Pending Subscribers
+                          <Col>
+                            Pending Subscribers
+                          <p className="h2 font-weight-bold text-right mb-0">
+                            {pending.length}
+                          </p>
+                          
+                          </Col>
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">
-                          {pending.length}
-                        </span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-gradient-primary text-white rounded-circle shadow">

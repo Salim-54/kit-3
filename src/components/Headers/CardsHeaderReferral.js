@@ -138,6 +138,12 @@ function CardsHeader({ data }) {
                         </div>
                       </Col>
                     </Row>
+                    <p className="mt-3 mb-0 text-sm">
+                      <span className="text-success mr-2">
+                        <i className="fa fa-arrow-up" /> 3.48%
+                      </span>{" "}
+                      <span className="text-nowrap">Since last month</span>
+                    </p>
                   </CardBody>
                 </Card>
               </Col>

@@ -153,10 +153,8 @@ function Dashboard() {
       <CardsHeader data={data} name="Default" parentName="Dashboards" />
       <Container className="mt--6" fluid>
         <>
-          {/* <SimpleHeader name="Tables" parentName="Tables" /> */}
           <div
             className=""
-            // style={{ overflowX: "auto", backgroundColor: "red" }}
             fluid
           >
             <Row
@@ -166,24 +164,24 @@ function Dashboard() {
             >
               <div className="col">
                 <Card>
-                  <CardHeader className="border-0">
+                  <CardHeader className="border-0 text-right">
                     <h3 className="mb-0">Referrers</h3>
                   </CardHeader>
 
                   <Table className="align-items-center table-flush" responsive>
                     <thead className="thead-light">
                       <tr>
-                        <th className="sort" data-sort="budget" scope="col">
+                        <th className="sort text-right" data-sort="budget" scope="col">
                           Phone number
                         </th>
 
-                        <th className="sort" data-sort="completion" scope="col">
+                        <th className="sort text-right" data-sort="completion" scope="col">
                           Subscribers
                         </th>
-                        <th className="sort" data-sort="completion" scope="col">
+                        <th className="sort text-right" data-sort="completion" scope="col">
                           Pending Subscribers
                         </th>
-                        <th className="sort" data-sort="completion" scope="col">
+                        <th className="sort text-right" data-sort="completion" scope="col">
                           Referral Dashboard
                         </th>
                         <th scope="col" />
@@ -192,7 +190,7 @@ function Dashboard() {
                     <tbody className="list">
                       {users.length > 0 ? (
                         users.map((item, index) => (
-                          <tr key={index}>
+                          <tr key={index} className="text-right">
                             <td>{item.phone ? item.phone : "N/A"}</td>
 
                             <th scope="row">

@@ -9,9 +9,9 @@ function AdminFooter() {
     <>
       <Container fluid>
         <footer className="footer pt-0 rtl">
-          <Row className="align-items-center justify-content-lg-between">
+          <Row className="align-items-center justify-content-lg-between text-right">
             <Col lg="6">
-              <div className="copyright text-center text-lg-left text-muted">
+              <div className="copyright text-right text-lg-right text-muted">
                 © {new Date().getFullYear()}
                 <a
                   className="font-weight-bold ml-1"
