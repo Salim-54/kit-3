@@ -16,8 +16,11 @@ import "assets/vendor/nucleo/css/nucleo.css";
 // core styles
 import "assets/scss/argon-dashboard-pro-react.scss";
 
+
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
+import IndexView from "./views/index1.js";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -27,6 +30,7 @@ root.render(
       <Route path="/admin/*" element={<AdminLayout />} />
       <Route path="/auth/*" element={<AuthLayout />} />
       <Route path="*" element={<Navigate to="/auth/register" replace />} />
+      <Route path="/" element={<IndexView/>} />
     </Routes>
   </BrowserRouter>
 );
